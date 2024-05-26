@@ -23,6 +23,7 @@ CONFIG_SCHEMA = sensor.sensor_schema(
     state_class=STATE_CLASS_MEASUREMENT,
     device_class=DEVICE_CLASS_DISTANCE,
 ).extend(uart.UART_DEVICE_SCHEMA)
+.extend(cv.polling_component_schema("60s"))
 
 FINAL_VALIDATE_SCHEMA = uart.final_validate_device_schema(
     "a02yyuw",
